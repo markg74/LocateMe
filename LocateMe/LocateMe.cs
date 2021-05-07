@@ -11,41 +11,64 @@ using System.Windows.Forms;
 
 namespace LocateMe
 {
-    public partial class labelLocateMe : Form
+    public partial class LocateMe : Form
     {
-        public labelLocateMe()
+        public LocateMe()
         {
             InitializeComponent();
-                        
         }
 
-
-
-        private void button1_Click(object sender, EventArgs e)
+        private void refresh()
         {
-
-            this.InitializeComponent();
+            refresh("");
         }
 
-        private void labelLocateMe_Load(object sender, EventArgs e)
+        private void refresh(string host)
         {
-            ExternalApi FreeApi = new ExternalApi();
-            string result = FreeApi.Call();
+            string result = ExternalApi.Call(host);
 
             textBox1.Text = result;
 
             LocationData lc = new LocationData();
             lc.Parse(result);
 
-
-            labelIp.Text = lc.Ip;
+            textBoxIP.Text = lc.Ip;         
             labelCity.Text = lc.City;
             labelCountryName.Text = lc.CountryName;
+            button2.Enabled = false;
+        }
+
+
+        private void LocateMe_Load(object sender, EventArgs e)
+        {
+            refresh();
+            button1.Click += Button1_Click;
+            textBoxIP.TextChanged += TextBoxIP_TextChanged;
+        }
+
+        private void TextBoxIP_TextChanged(object sender, EventArgs e)
+        {
+            button2.Enabled = true;
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            refresh();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(textBoxIP.Text))
+                textBoxIP.Text = "N/A";
+            else
+            {
+                refresh(textBoxIP.Text);
+            }
         }
     }
 }

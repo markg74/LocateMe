@@ -1,6 +1,6 @@
 ﻿namespace LocateMe
 {
-    partial class labelLocateMe
+    partial class LocateMe
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(labelLocateMe));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LocateMe));
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.labelIp = new System.Windows.Forms.Label();
             this.labelCountryName = new System.Windows.Forms.Label();
             this.labelCity = new System.Windows.Forms.Label();
+            this.textBoxIP = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -58,7 +59,6 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Refresh";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -77,17 +77,6 @@
             this.label2.Size = new System.Drawing.Size(100, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Raw response XML";
-            // 
-            // labelIp
-            // 
-            this.labelIp.AutoSize = true;
-            this.labelIp.BackColor = System.Drawing.Color.Transparent;
-            this.labelIp.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIp.Location = new System.Drawing.Point(35, 91);
-            this.labelIp.Name = "labelIp";
-            this.labelIp.Size = new System.Drawing.Size(40, 31);
-            this.labelIp.TabIndex = 4;
-            this.labelIp.Text = "IP";
             // 
             // labelCountryName
             // 
@@ -111,15 +100,35 @@
             this.labelCity.TabIndex = 6;
             this.labelCity.Text = "labelCity";
             // 
+            // textBoxIP
+            // 
+            this.textBoxIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxIP.Location = new System.Drawing.Point(41, 93);
+            this.textBoxIP.Name = "textBoxIP";
+            this.textBoxIP.Size = new System.Drawing.Size(223, 35);
+            this.textBoxIP.TabIndex = 7;
+            // 
+            // button2
+            // 
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(290, 93);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(95, 34);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Scan";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // labelLocateMe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(641, 374);
+            this.ClientSize = new System.Drawing.Size(632, 370);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.textBoxIP);
             this.Controls.Add(this.labelCity);
             this.Controls.Add(this.labelCountryName);
-            this.Controls.Add(this.labelIp);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
@@ -127,7 +136,7 @@
             this.MaximizeBox = false;
             this.Name = "labelLocateMe";
             this.Text = "LocateMe";
-            this.Load += new System.EventHandler(this.labelLocateMe_Load);
+            this.Load += new System.EventHandler(this.LocateMe_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,9 +148,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label labelIp;
         private System.Windows.Forms.Label labelCountryName;
         private System.Windows.Forms.Label labelCity;
+        private System.Windows.Forms.TextBox textBoxIP;
+        private System.Windows.Forms.Button button2;
     }
 }
 

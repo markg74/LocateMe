@@ -21,10 +21,8 @@ namespace LocateMe
         public string Longitude { get; set; }
         public string MetroCode { get; set; }
 
-
         public LocationData Parse(string xmlToParse)
         {
-
             XmlDocument xmlDocument = new XmlDocument();
             xmlDocument.LoadXml(xmlToParse);
 
@@ -43,15 +41,11 @@ namespace LocateMe
                 Latitude = node.SelectSingleNode("Latitude").InnerText;
                 Longitude = node.SelectSingleNode("Longitude").InnerText;
                 MetroCode = node.SelectSingleNode("MetroCode").InnerText;
-                    
             }
 
-          
+          // error handling +  data format check 
 
             return this;
-
         }
-
     }
-
 }

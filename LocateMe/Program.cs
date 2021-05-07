@@ -17,10 +17,7 @@ namespace LocateMe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new labelLocateMe());
-
-                 
-
+            Application.Run(new LocateMe());
         }
     }
 }

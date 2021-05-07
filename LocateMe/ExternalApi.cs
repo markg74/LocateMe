@@ -10,9 +10,15 @@ namespace LocateMe
 {
     class ExternalApi
     {
-        public string Call()
+        public static string Call(string host)    
         {
-            HttpWebRequest webRequest = System.Net.WebRequest.CreateHttp("https://freegeoip.app/xml/");
+
+            string endPoint = "https://freegeoip.app/xml/";
+
+            if (!String.IsNullOrWhiteSpace(host))
+                endPoint += host;
+
+            HttpWebRequest webRequest = System.Net.WebRequest.CreateHttp(endPoint);
             webRequest.Method = "GET";
 
             using (WebResponse webResponse = webRequest.GetResponse())
