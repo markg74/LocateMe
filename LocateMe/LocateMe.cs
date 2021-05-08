@@ -35,7 +35,7 @@ namespace LocateMe
             textBoxIP.Text = lc.Ip;         
             labelCity.Text = lc.City;
             labelCountryName.Text = lc.CountryName;
-            button2.Enabled = false;
+            button2.Visible = false;
         }
 
 
@@ -48,7 +48,7 @@ namespace LocateMe
 
         private void TextBoxIP_TextChanged(object sender, EventArgs e)
         {
-            button2.Enabled = true;
+            button2.Visible = true;
         }
 
         private void Button1_Click(object sender, EventArgs e)
