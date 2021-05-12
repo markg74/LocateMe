@@ -18,14 +18,23 @@ namespace LocateMe
             if (!String.IsNullOrWhiteSpace(host))
                 endPoint += host;
 
-            HttpWebRequest webRequest = System.Net.WebRequest.CreateHttp(endPoint);
-            webRequest.Method = "GET";
-
-            using (WebResponse webResponse = webRequest.GetResponse())
-            using (StreamReader responseReader = new StreamReader(webResponse.GetResponseStream()))
+            try
             {
-                return  Convert.ToString(responseReader.ReadToEnd());
+                HttpWebRequest webRequest = System.Net.WebRequest.CreateHttp(endPoint);
+                webRequest.Method = "GET";
+
+                using (WebResponse webResponse = webRequest.GetResponse())
+                using (StreamReader responseReader = new StreamReader(webResponse.GetResponseStream()))
+                {
+                    return Convert.ToString(responseReader.ReadToEnd());
+                }
             }
+            catch (Exception e)
+            {
+                return "ERROR : " + e.Message ;
+            }
+
+
        
         }
     }
