@@ -12,12 +12,10 @@ namespace LocateMe
     {
         public static string Call(string host)    
         {
-
             string endPoint = "https://freegeoip.app/xml/";
 
             if (!String.IsNullOrWhiteSpace(host))
                 endPoint += host;
-
             try
             {
                 HttpWebRequest webRequest = System.Net.WebRequest.CreateHttp(endPoint);
@@ -33,9 +31,6 @@ namespace LocateMe
             {
                 return "ERROR : " + e.Message ;
             }
-
-
-       
         }
     }
 }

@@ -46,8 +46,6 @@ namespace LocateMe
                     if (Decimal.TryParse(node.SelectSingleNode("Longitude").Value, out decimal _longitude))
                         Longitude = _longitude;
 
-                    //Latitude = Convert.ToDecimal(node.SelectSingleNode("Latitude").Value);
-                    //Longitude = Convert.ToDecimal(node.SelectSingleNode("Longitude").Value);
                     MetroCode = node.SelectSingleNode("MetroCode").InnerText;
                 }
 
@@ -55,11 +53,9 @@ namespace LocateMe
             }
             catch (Exception)
             {
-                this.Ip = "N/A";
+                this.Ip = "Not Available";
                 return this;
             }
-            
-            
         }
     }
 }
